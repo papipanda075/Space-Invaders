@@ -36,10 +36,28 @@ int main()
         triangle.setPoint(2, sf::Vector2f(size / 2.f, std::sqrt(3.f) / 2.f * size));
         triangle.setFillColor(sf::Color::Blue);
         triangle.setPosition(750-size/2,0);
+
+        sf::Texture texture;
+        texture.loadFromFile("assets/textures/outscal_logo.png");
+        sf::Sprite spirite;
+        spirite.setTexture(texture);
+        spirite.setScale(0.5,0.5);
+        spirite.setPosition(300,250);
+
+        
+        sf::Font font;
+        font.loadFromFile("assets/fonts/OpenSans.ttf");
+
+        sf::Text text("SFML is Awesome",font,50);
+        text.setFillColor(sf::Color::White);
+        text.setPosition(1, 0);
+
         // Display whatever you draw
-        window.draw(circle);
-        window.draw(square);
-        window.draw(triangle);
+        //window.draw(circle);
+        //window.draw(square);
+        //window.draw(triangle);
+        window.draw(spirite);
+        window.draw(text);
         window.display();
     }
 
