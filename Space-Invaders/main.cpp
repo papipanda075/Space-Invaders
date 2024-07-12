@@ -7,15 +7,26 @@ private:
 
     int health;
     int playerscore;
-    sf::Vector2f position;
+    int movement_speed = 5;
+    sf::Vector2f position = sf::Vector2f(960,540);
 public:
     sf::Texture texture;
     sf::Sprite sprite;
 
 
     void TakeDamage();
-    void move();
+    void move(float offset) {
+        position.x += offset;
+    }
     void shootbullets();
+
+    int getspeed() {
+        return movement_speed;
+   }
+
+    sf::Vector2f getposition() {
+        return position;
+    }
 
 };
 int main()
@@ -23,6 +34,13 @@ int main()
 {
     sf::VideoMode videomode = sf::VideoMode(1920, 1080);
     sf::RenderWindow window(videomode, "SPACE INVADER");
+
+
+
+    Player One;
+    One.texture.loadFromFile("assets/textures/player_ship.png");
+    One.sprite.setTexture(One.texture);
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -32,18 +50,20 @@ int main()
 
 
         window.clear(sf::Color::Black);
+;
 
-        Player One;
-        One.texture.loadFromFile("assets/textures/player_ship.png");
-        One.sprite.setTexture(One.texture);
-        One.sprite.setPosition(960, 540);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+            One.move(1.0 * One.getspeed());
 
-        sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
+        }
+            
+     
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+            One.move(-1.0 * One.getspeed());
+       }
 
-        sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
 
-
-   
+        One.sprite.setPosition(One.getposition());
         window.draw(One.sprite);
         window.display();
 
