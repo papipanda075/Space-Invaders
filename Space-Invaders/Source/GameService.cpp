@@ -1,13 +1,28 @@
-void initlaize() {
+#include"../Header/GameService.h"
+
+void GameService::destroy() {
 
 }
-void destroy() {
+
+void GameService::initlaize() {
+
+}
+GameService::GameService() {
 
 }
 
-void ignite() {}
-void update() {}
-void render() {}
-bool isRunning() {
+GameService::~GameService() {
+
+}
+void GameService::ignite() {
+
+}
+void GameService::update() {
+
+}
+void GameService::render() {
+
+}
+bool GameService::isRunning() {
 	return false;
 }
