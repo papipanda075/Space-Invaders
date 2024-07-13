@@ -3,9 +3,13 @@
 #include"Header/GameService.h"
 using namespace std;
 int main() {
+    GameService* game_service = new GameService();
 
-	GameService gameservice;
-	gameservice.ignite();
-	gameservice.update();
-	gameservice.render();
+    game_service->ignite();
+
+    while (game_service->isRunning())
+    {
+        game_service->update();
+        game_service->render();
+    }
 }
