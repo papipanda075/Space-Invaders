@@ -132,7 +132,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Header\EventService.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Source\GameService.cpp" />
+    <ClCompile Include="Source\GraphicService.cpp" />
+    <ClCompile Include="Source\ServiceLocator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Header\EventService.h" />
+    <ClInclude Include="Header\GameService.h" />
+    <ClInclude Include="Header\ServiceLocator.h" />
+    <ClInclude Include="Header\GraphicService.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
