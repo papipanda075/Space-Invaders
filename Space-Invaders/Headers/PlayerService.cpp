@@ -15,11 +15,11 @@ void PlayerService::processPlayerInput()
 	EventService* checkkey = ServiceLocator::getInstance()->getEventService();
 	if (checkkey->isKeyboardEvent()) {
 		if (checkkey->pressedLeftKey()) {
-			move(-1.0 * getMoveSpeed());
+			moveLef();
 		}
 
 		if (checkkey->pressedRightKey()) {
-			move(1.0 * getMoveSpeed());
+			moveRight();
 		}
 	 }
 }
@@ -50,10 +50,19 @@ void PlayerService::render()
 	game_window->draw(player_sprite);
 }
 
-void PlayerService::move(float offsetX)
+void PlayerService::moveLef()
 {
-	position.x += offsetX;
+
+	position.x -= ServiceLocator::getInstance()->gettimeservice()->getdeltatime();
 }
+
+void PlayerService::moveRight()
+{
+
+	position.x += ServiceLocator::getInstance()->gettimeservice()->getdeltatime();
+}
+
+
 
 int PlayerService::getMoveSpeed()
 {
