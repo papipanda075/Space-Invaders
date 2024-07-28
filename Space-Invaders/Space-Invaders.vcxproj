@@ -132,8 +132,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Headers\EventService.cpp" />
     <ClCompile Include="Headers\GameService.cpp" />
     <ClCompile Include="Headers\GraphicService.cpp" />
+    <ClCompile Include="Headers\PlayerService.cpp" />
     <ClCompile Include="Headers\ServiceLocator.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -141,6 +143,7 @@
     <ClInclude Include="Headers\EventService.h" />
     <ClInclude Include="Headers\GameService.h" />
     <ClInclude Include="Headers\GraphicService.h" />
+    <ClInclude Include="Headers\PlayerService.h" />
     <ClInclude Include="Headers\ServiceLocator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

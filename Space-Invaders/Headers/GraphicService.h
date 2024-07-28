@@ -6,6 +6,7 @@
 class GraphicService
 {
 private:
+	
 
 	const std::string game_window_title = "Outscal Presents - Alien Invader";
 

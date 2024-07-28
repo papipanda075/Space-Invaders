@@ -1,10 +1,12 @@
 #include"ServiceLocator.h"
 #include"GraphicService.h"
 
+
 // Constructor: Initializes game window and video mode pointers to null.
 GraphicService::GraphicService() {
 	game_window = nullptr; // Initializes game window pointer to null
 	video_mode = nullptr; // Initializes video mode pointer to null
+	
 }
 
 // Destructor: Cleans up resources by calling onDestroy.
@@ -35,10 +37,16 @@ void GraphicService::onDestroy() {
 }
 
 // Placeholder function for game update logic.
-void GraphicService::update() { }
+void GraphicService::update() {
+
+
+}
+
 
 // Placeholder function for game rendering logic.
-void GraphicService::render() { }
+void GraphicService::render() {
+
+	}
 
 // Checks if the game window is currently open.
 bool GraphicService::isGameWindowOpen() {
