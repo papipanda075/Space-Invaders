@@ -7,6 +7,7 @@ ServiceLocator::ServiceLocator() {
 	graphic_service = nullptr;// Initialize graphic_service to null
 	event_service = nullptr;
 	player_service = nullptr;
+	time_Service = nullptr;
 	createServices(); // Call createServices to instantiate services
 }
 
@@ -20,7 +21,7 @@ void ServiceLocator::createServices() {
 	graphic_service = new GraphicService(); // Dynamically create a GraphicService instance
 	event_service = new EventService();
 	player_service = new PlayerService();
-
+	time_Service = new TimeService();
 }
 
 // Deletes allocated services to prevent memory leaks, specifically the graphic service.
@@ -28,6 +29,7 @@ void ServiceLocator::clearAllServices() {
 	delete(graphic_service); // Delete the graphic_service instance
 	delete(event_service);
 	delete(player_service);
+	delete(time_Service);
 
 }
 
@@ -42,6 +44,7 @@ void ServiceLocator::initialize() {
 	graphic_service->initialize(); // Initialize graphic service
 	event_service->initialize();
 	player_service->initialize();
+	time_Service->intialize();
 }
 
 // Updates the state of the graphic service.
@@ -49,7 +52,9 @@ void ServiceLocator::update() {
 	graphic_service->update(); // Update graphic service
 	event_service->update();
 	player_service->update();
+	time_Service->update();
 }
+
 
 // Renders using the graphic service.
 void ServiceLocator::render() {
@@ -68,5 +73,10 @@ PlayerService* ServiceLocator::getplayerservice() {
 	return player_service;
 }
 
-	
+TimeService* ServiceLocator::gettimeservice()
+{
+	return time_Service;
+}
+
+
 

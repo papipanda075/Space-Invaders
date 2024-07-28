@@ -137,6 +137,7 @@
     <ClCompile Include="Headers\GraphicService.cpp" />
     <ClCompile Include="Headers\PlayerService.cpp" />
     <ClCompile Include="Headers\ServiceLocator.cpp" />
+    <ClCompile Include="Headers\TimeService .cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +146,7 @@
     <ClInclude Include="Headers\GraphicService.h" />
     <ClInclude Include="Headers\PlayerService.h" />
     <ClInclude Include="Headers\ServiceLocator.h" />
+    <ClInclude Include="Headers\TimeService .h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
