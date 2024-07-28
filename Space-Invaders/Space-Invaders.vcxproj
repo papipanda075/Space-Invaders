@@ -138,6 +138,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\EventService.h" />
     <ClInclude Include="Headers\GameService.h" />
     <ClInclude Include="Headers\GraphicService.h" />
     <ClInclude Include="Headers\ServiceLocator.h" />
