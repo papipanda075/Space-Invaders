@@ -27,6 +27,7 @@ void PlayerService::processPlayerInput()
 PlayerService::PlayerService()
 {
 	game_window = nullptr;
+	pcontroller = nullptr;
 }
 
 PlayerService::~PlayerService()
@@ -36,17 +37,20 @@ PlayerService::~PlayerService()
 void PlayerService::initialize()
 {
 	game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+	pcontroller->intialize();
 	initializePlayerSprite();
 }
 
 void PlayerService::update()
 {
 	processPlayerInput();
+	pcontroller->update();
 	player_sprite.setPosition(getPlayerPosition());
 }
 
 void PlayerService::render()
 {
+	pcontroller->render();
 	game_window->draw(player_sprite);
 }
 

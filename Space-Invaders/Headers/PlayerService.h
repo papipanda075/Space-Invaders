@@ -1,6 +1,7 @@
 #pragma once
 #include<SFML/Graphics.hpp>
 #include"TimeService .h"
+#include"../Headers/player/PlayerController.h"
 class PlayerService
 {
 
@@ -22,6 +23,8 @@ private:
 
      void initializePlayerSprite();
      void processPlayerInput();
+
+     PlayerController* pcontroller;
 
 public:
 
