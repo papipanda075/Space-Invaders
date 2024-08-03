@@ -68,6 +68,19 @@ namespace Main {
 		return service_locator->getGraphicService()->isGameWindowOpen();
 	}
 
+	void GameService::setgamestate(Gamestate gamestate)
+	{
+		current_state = gamestate;
+	}
+
+	Gamestate GameService::getgamestate()
+	{
+		return current_state;
+	}
+
+	
+	Gamestate GameService::current_state = Gamestate::BOOT;
+
 }
 
 
