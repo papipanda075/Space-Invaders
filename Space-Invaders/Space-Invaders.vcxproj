@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -132,27 +132,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Headers\EventService.cpp" />
-    <ClCompile Include="Headers\GameService.cpp" />
-    <ClCompile Include="Headers\GraphicService.cpp" />
-    <ClCompile Include="Headers\PlayerService.cpp" />
-    <ClCompile Include="Headers\player\PlayerController.cpp" />
-    <ClCompile Include="Headers\player\PlayerModel.cpp" />
-    <ClCompile Include="Headers\player\PlayerView.cpp" />
-    <ClCompile Include="Headers\ServiceLocator.cpp" />
-    <ClCompile Include="Headers\TimeService .cpp" />
+    <ClCompile Include="source\EventService.cpp" />
+    <ClCompile Include="source\GameService.cpp" />
+    <ClCompile Include="source\GraphicService.cpp" />
+    <ClCompile Include="source\PlayerService.cpp" />
+    <ClCompile Include="source\PlayerController.cpp" />
+    <ClCompile Include="source\PlayerModel.cpp" />
+    <ClCompile Include="source\PlayerView.cpp" />
+    <ClCompile Include="source\ServiceLocator.cpp" />
+    <ClCompile Include="source\TimeService .cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Headers\EventService.h" />
-    <ClInclude Include="Headers\GameService.h" />
-    <ClInclude Include="Headers\GraphicService.h" />
-    <ClInclude Include="Headers\PlayerService.h" />
+    <ClInclude Include="Headers\EVENT\EventService.h" />
+    <ClInclude Include="Headers\main\GameService.h" />
+    <ClInclude Include="Headers\Graphic\GraphicService.h" />
+    <ClInclude Include="Headers\player\PlayerService.h" />
     <ClInclude Include="Headers\player\PlayerController.h" />
     <ClInclude Include="Headers\player\PlayerModel.h" />
     <ClInclude Include="Headers\player\PlayerView.h" />
-    <ClInclude Include="Headers\ServiceLocator.h" />
-    <ClInclude Include="Headers\TimeService .h" />
+    <ClInclude Include="Headers\Global\ServiceLocator.h" />
+    <ClInclude Include="Headers\TIME\TimeService .h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,79 +1,88 @@
-#include "PlayerService.h"
-#include"ServiceLocator.h"
+//#include "../Headers/PlayerService.h"
+//#include"../Headers/ServiceLocator.h"
+//#include"../Headers/player/PlayerController.h"
+#include"../Headers/Global/ServiceLocator.h"
+#include"../Headers/player/PlayerService.h"
+#include"../Headers/player/PlayerController.h"
+#include"../Headers/EVENT/EventService.h"
+namespace player {
+	using namespace event;
+	using namespace Global;
 
-
-void PlayerService::initializePlayerSprite()
-{
-	if (player_texture.loadFromFile(player_texture_path)) {
-		player_sprite.setTexture(player_texture);
+	void PlayerService::initializePlayerSprite()
+	{
+		if (player_texture.loadFromFile(player_texture_path)) {
+			player_sprite.setTexture(player_texture);
+		}
 	}
-}
 
-void PlayerService::processPlayerInput()
-{
+	void PlayerService::processPlayerInput()
+	{
 
-	EventService* checkkey = ServiceLocator::getInstance()->getEventService();
-	if (checkkey->isKeyboardEvent()) {
-		if (checkkey->pressedLeftKey()) {
-			moveLef();
+		EventService* checkkey = ServiceLocator::getInstance()->getEventService();
+		if (checkkey->isKeyboardEvent()) {
+			if (checkkey->pressedLeftKey()) {
+				moveLef();
+			}
+
+			if (checkkey->pressedRightKey()) {
+				moveRight();
+			}
 		}
+	}
 
-		if (checkkey->pressedRightKey()) {
-			moveRight();
-		}
-	 }
-}
+	PlayerService::PlayerService()
+	{
+		game_window = nullptr;
+		player_controller = new PlayerController;
+	}
 
-PlayerService::PlayerService()
-{
-	game_window = nullptr;
-	pcontroller = nullptr;
-}
+	PlayerService::~PlayerService()
+	{
+		delete player_controller;
+	}
 
-PlayerService::~PlayerService()
-{
-}
+	void PlayerService::initialize()
+	{
+		game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+		player_controller->intialize();
+		initializePlayerSprite();
+	}
 
-void PlayerService::initialize()
-{
-	game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-	pcontroller->intialize();
-	initializePlayerSprite();
-}
+	void PlayerService::update()
+	{
+		processPlayerInput();
+		player_controller->update();
+		player_sprite.setPosition(getPlayerPosition());
+	}
 
-void PlayerService::update()
-{
-	processPlayerInput();
-	pcontroller->update();
-	player_sprite.setPosition(getPlayerPosition());
-}
+	void PlayerService::render()
+	{
+		player_controller->render();
+		game_window->draw(player_sprite);
+	}
 
-void PlayerService::render()
-{
-	pcontroller->render();
-	game_window->draw(player_sprite);
-}
+	void PlayerService::moveLef()
+	{
 
-void PlayerService::moveLef()
-{
+		position.x -= ServiceLocator::getInstance()->gettimeservice()->getdeltatime();
+	}
 
-	position.x -= ServiceLocator::getInstance()->gettimeservice()->getdeltatime();
-}
+	void PlayerService::moveRight()
+	{
 
-void PlayerService::moveRight()
-{
-
-	position.x += ServiceLocator::getInstance()->gettimeservice()->getdeltatime();
-}
+		position.x += ServiceLocator::getInstance()->gettimeservice()->getdeltatime();
+	}
 
 
 
-int PlayerService::getMoveSpeed()
-{
-	return movement_speed;
-}
+	int PlayerService::getMoveSpeed()
+	{
+		return movement_speed;
+	}
 
-sf::Vector2f PlayerService::getPlayerPosition()
-{
-	return position;
+	sf::Vector2f PlayerService::getPlayerPosition()
+	{
+		return position;
+	}
 }

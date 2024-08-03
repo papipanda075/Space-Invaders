@@ -1,43 +1,48 @@
 #pragma once
-#include<SFML/Graphics.hpp>
-#include"TimeService .h"
-#include"../Headers/player/PlayerController.h"
-class PlayerService
-{
+#include<SFML/Graphics.hpp>"
+#include"../TIME/TimeService .h"
+#include"../player/PlayerController.h"
 
-private:
 
-    
+namespace player {
+    class PlayerService
+    {
 
-    int health = 3;
-    sf::Vector2f position = sf::Vector2f(200.0f, 100.0f);
-    float movement_speed = 5.0f;
-    int player_score = 0;
+    private:
 
-     const sf::String player_texture_path = "assets/textures/player_ship.png";
 
-    sf::Texture player_texture;
-    sf::Sprite player_sprite;
 
-     sf::RenderWindow* game_window; //as always
+        int health = 3;
+        sf::Vector2f position = sf::Vector2f(200.0f, 100.0f);
+        float movement_speed = 5.0f;
+        int player_score = 0;
 
-     void initializePlayerSprite();
-     void processPlayerInput();
+        const sf::String player_texture_path = "assets/textures/player_ship.png";
 
-     PlayerController* pcontroller;
+        sf::Texture player_texture;
+        sf::Sprite player_sprite;
 
-public:
+        sf::RenderWindow* game_window; //as always
+
+        void initializePlayerSprite();
+        void processPlayerInput();
+
+        PlayerController* player_controller;
+        
+
+    public:
 
         PlayerService();
-    ~PlayerService();
+        ~PlayerService();
 
-    void initialize();
-    void update();
-    void render();
+        void initialize();
+        void update();
+        void render();
 
         void moveLef();
         void moveRight();
-    int getMoveSpeed();
-    sf::Vector2f getPlayerPosition();
+        int getMoveSpeed();
+        sf::Vector2f getPlayerPosition();
 
-};
+    };
+}
