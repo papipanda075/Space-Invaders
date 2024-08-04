@@ -11,8 +11,8 @@ namespace Graphic {
 
 		const std::string game_window_title = "Outscal Presents - Alien Invader";
 
-		const int game_window_width = 800;
-		const int game_window_height = 600;
+		const int game_window_width = 1920;
+		const int game_window_height = 1080;
 
 		const sf::Color window_color = sf::Color::Blue;
 

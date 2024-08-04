@@ -68,9 +68,13 @@ namespace Global {
 
 	// Renders using the graphic service.
 	void ServiceLocator::render() {
+		uiservice->render();
+		player_service->render();
 		graphic_service->render(); // Render graphic service
 		player_service->render();
-		uiservice->render();
+		
+		
+		
 	}
 
 	// Returns a pointer to the currently set graphic service.
