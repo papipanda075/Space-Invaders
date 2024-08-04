@@ -38,6 +38,8 @@ namespace Main {
 		bool isRunning();// Checks if the game is currently running.
 		static void setGameState(GameState new_state);
 		static GameState getGameState();
+
+		void showmainmenu();
 	
 	
 	};

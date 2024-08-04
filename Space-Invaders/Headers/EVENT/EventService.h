@@ -26,6 +26,7 @@ namespace  event {
 		bool isKeyboardEvent();
 		bool pressedLeftKey();
 		bool pressedRightKey();
-
+		bool leftmousebutton();
+		bool rightmousebutton();
 	};
 }

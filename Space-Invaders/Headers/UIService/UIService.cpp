@@ -40,8 +40,21 @@ void UI::UiService::initialize()
 
 void UI::UiService::update()
 {
+
+	switch (GameService::getGameState())
+	{
+	case GameState::MAIN_MENU:
+		return  main_menu_controller->update();
+		break;
+	}
 }
 
 void UI::UiService::render()
 {
+	switch (GameService::getGameState())
+	{
+	case GameState::MAIN_MENU:
+		return main_menu_controller->render();
+		break;
+	}
 }
