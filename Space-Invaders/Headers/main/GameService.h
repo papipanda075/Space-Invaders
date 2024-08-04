@@ -2,6 +2,12 @@
 
 #include <SFML/Graphics.hpp>
 #include"../Global/ServiceLocator.h"
+enum class GameState //create the enum
+{
+	BOOT,
+	MAIN_MENU,
+	GAMEPLAY,
+};
 
 namespace Main {
 
@@ -11,6 +17,8 @@ namespace Main {
 	{
 	private:
 
+
+		static GameState current_state;
 
 		ServiceLocator* service_locator;
 		sf::RenderWindow* game_window;
@@ -27,6 +35,10 @@ namespace Main {
 		void ignite();			// Initiates the game.
 		void update();			// Updates the game logic and game state.
 		void render();			// Renders each frame of the game.
-		bool isRunning();		// Checks if the game is currently running.
+		bool isRunning();// Checks if the game is currently running.
+		static void setGameState(GameState new_state);
+		static GameState getGameState();
+	
+	
 	};
 }
