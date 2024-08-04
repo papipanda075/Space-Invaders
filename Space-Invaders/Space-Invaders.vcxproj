@@ -132,6 +132,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Headers\UIService\MainMenu\MainMenuUIController.cpp" />
+    <ClCompile Include="Headers\UIService\UIService.cpp" />
     <ClCompile Include="source\EventService.cpp" />
     <ClCompile Include="source\GameService.cpp" />
     <ClCompile Include="source\GraphicService.cpp" />
@@ -153,6 +155,8 @@
     <ClInclude Include="Headers\player\PlayerView.h" />
     <ClInclude Include="Headers\Global\ServiceLocator.h" />
     <ClInclude Include="Headers\TIME\TimeService .h" />
+    <ClInclude Include="Headers\UIService\MainMenu\MainMenuUIController.h" />
+    <ClInclude Include="Headers\UIService\UIService.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
