@@ -4,8 +4,7 @@
 #include"../EVENT/EventService.h"
 #include"../player/PlayerService.h"
 #include"../TIME/TimeService .h"
-#include"../../Headers/UIService/UIService.h"
-
+#include"../../UI/UISERVICE.h"
 namespace   Global {
     using namespace player;
     using namespace Graphic;
@@ -20,7 +19,8 @@ namespace   Global {
         EventService* event_service;
         PlayerService* player_service;
         TimeService* time_Service;
-        UiService* uiservice;
+        UiService* ui_service;
+      
         // Private Constructor and Destructor:
         ServiceLocator();
         // Constructor for initializing the ServiceLocator.
@@ -42,6 +42,6 @@ namespace   Global {
         EventService* getEventService();
         PlayerService* getplayerservice();
         TimeService* gettimeservice();
-        UiService* getuiservice();
+        UiService* getUiservice();
     };
 }

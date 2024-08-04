@@ -13,7 +13,7 @@ namespace Global {
 		event_service = nullptr;
 		player_service = nullptr;
 		time_Service = nullptr;
-		uiservice = nullptr;
+		ui_service = nullptr;
 		createServices(); // Call createServices to instantiate services
 	}
 
@@ -29,7 +29,7 @@ namespace Global {
 
 		player_service = new PlayerService();
 		time_Service = new TimeService();
-		uiservice = new UiService();
+		ui_service = new UiService();
 	}
 
 	// Deletes allocated services to prevent memory leaks, specifically the graphic service.
@@ -38,12 +38,13 @@ namespace Global {
 		delete(event_service);
 		delete(player_service);
 		delete(time_Service);
-		delete(uiservice);
+		delete(ui_service);
+		
 	}
 
 	// Returns a pointer to ServiceLocator.
 	ServiceLocator* ServiceLocator::getInstance() {
-		static ServiceLocator instance; // we will discuss what 'static' means at a later time.
+		static ServiceLocator instance; 
 		return &instance; // Return address of the instance
 	}
 
@@ -53,7 +54,7 @@ namespace Global {
 		event_service->initialize();
 		player_service->initialize();
 		time_Service->intialize();
-		uiservice->initialize();
+		ui_service->intialize();
 	}
 
 	// Updates the state of the graphic service.
@@ -62,17 +63,21 @@ namespace Global {
 		event_service->update();
 		player_service->update();
 		time_Service->update();
-		uiservice->update();
+		ui_service->update();
 	}
 
 
 	// Renders using the graphic service.
 	void ServiceLocator::render() {
-		uiservice->render();
+
+		
 		player_service->render();
 		graphic_service->render(); // Render graphic service
+
+	 // Render graphic service
+
 		player_service->render();
-		
+		ui_service->render();
 		
 		
 	}
@@ -93,10 +98,12 @@ namespace Global {
 		return time_Service;
 	}
 
-	UiService* ServiceLocator::getuiservice() {
-
-		return uiservice;
+	UiService* ServiceLocator::getUiservice()
+	{
+		return ui_service;
 	}
+
+	
 
 }
 

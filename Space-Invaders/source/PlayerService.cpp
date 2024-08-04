@@ -9,6 +9,7 @@ namespace player {
 	using namespace event;
 	using namespace Global;
 
+	
 	void PlayerService::initializePlayerSprite()
 	{
 		if (player_texture.loadFromFile(player_texture_path)) {
@@ -57,9 +58,10 @@ namespace player {
 	}
 
 	void PlayerService::render()
+
 	{
 		player_controller->render();
-		game_window->draw(player_sprite);
+		
 	}
 
 	void PlayerService::moveLef()
@@ -85,4 +87,5 @@ namespace player {
 	{
 		return position;
 	}
+	
 }
