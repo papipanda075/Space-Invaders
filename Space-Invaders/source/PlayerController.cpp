@@ -8,13 +8,21 @@ namespace player{
 	using namespace Global;
 	void PlayerController::processinput()
 	{
+		EventService* event_service = ServiceLocator::getInstance()->getEventService();
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-			processmoveright();
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+		if (event_service->pressedLeftKey() || event_service->pressedAKey())
+		{
 			processmoveleft();
 		}
+
+		if (event_service->pressedRightKey() || event_service->pressedDKey())
+		{
+			processmoveright();
+		}
+
+
+
+
 	}
 
 	void PlayerController::processmoveleft()
