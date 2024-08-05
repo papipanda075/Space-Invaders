@@ -4,8 +4,13 @@
 #include"../Headers/player/PlayerService.h"
 #include"../Headers/TIME/TimeService .h"
 #include"../Headers//Graphic/GraphicService.h"
+#include"../Headers/main/GameService.h"
+
 
 namespace Global {
+	using namespace Main;
+	using namespace Graphic;
+	using namespace event;
 
 	// Constructor: Initializes the graphic_service pointer to null and creates services.
 	ServiceLocator::ServiceLocator() {
@@ -14,6 +19,7 @@ namespace Global {
 		player_service = nullptr;
 		time_Service = nullptr;
 		ui_service = nullptr;
+		enemy_service =nullptr;
 		createServices(); // Call createServices to instantiate services
 	}
 
@@ -30,6 +36,7 @@ namespace Global {
 		player_service = new PlayerService();
 		time_Service = new TimeService();
 		ui_service = new UiService();
+		enemy_service = new EnemyService();
 	}
 
 	// Deletes allocated services to prevent memory leaks, specifically the graphic service.
@@ -39,6 +46,7 @@ namespace Global {
 		delete(player_service);
 		delete(time_Service);
 		delete(ui_service);
+		delete(enemy_service);
 		
 	}
 
@@ -61,24 +69,37 @@ namespace Global {
 	void ServiceLocator::update() {
 		graphic_service->update(); // Update graphic service
 		event_service->update();
-		player_service->update();
 		time_Service->update();
-		ui_service->update();
+
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+			player_service->update();
+			enemy_service->update();
+		}
+
+		   ui_service->update();
+
+	
+		
 	}
 
 
 	// Renders using the graphic service.
 	void ServiceLocator::render() {
 
-		
-		
+
+
 		graphic_service->render(); // Render graphic service
 
-	 // Render graphic service
-		player_service->render();
-		ui_service->render();
+		// Render graphic service
 
-		
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+			player_service->render();
+			enemy_service->render();
+		}
+
+		ui_service->render();
 		
 		
 	}
@@ -102,6 +123,11 @@ namespace Global {
 	UiService* ServiceLocator::getUiservice()
 	{
 		return ui_service;
+	}
+
+	EnemyService* ServiceLocator::getenemyservice()
+	{
+		return enemy_service;
 	}
 
 	

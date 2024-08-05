@@ -2,6 +2,7 @@
 //#include"../ServiceLocator.h"
 #include"../Headers/player/PlayerView.h"
 #include"../Headers/Global/ServiceLocator.h"
+#include "../../Enemy/EnemyView.h"
 
 namespace player {
 	using namespace Global;
@@ -36,6 +37,10 @@ namespace player {
 			static_cast<float>(player_sprite_height) / player_sprite.getTexture()->getSize().y
 		);
 	}
+
+
+
+	
 
 	void PlayerView::update()
 	{

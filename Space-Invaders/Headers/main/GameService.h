@@ -15,6 +15,7 @@ enum class GameState //create the enum
 namespace Main {
 
 	using namespace Global;
+	using namespace Main;
 
 	class GameService
 	{
