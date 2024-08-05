@@ -22,7 +22,7 @@ namespace enemy {
 
 	enemy::EnemyService::~EnemyService()
 	{
-		Enemy = new EnemyController();
+		
 		destroy();
 	}
 
@@ -43,7 +43,7 @@ namespace enemy {
 
 	EnemyController* EnemyService::spawnenemy()
 	{
-		
+		Enemy = new EnemyController();
 		Enemy->initialize();
 		return Enemy;
 	}

@@ -5,14 +5,14 @@
 namespace enemy {
 	using namespace Global;
 	using namespace Graphic;
-	
+
 	EnemyView::EnemyView()
 	{
 	}
 	EnemyView::~EnemyView()
 	{
 	}
-	void EnemyView::initializeEnemySprite() 
+	void EnemyView::initializeEnemySprite()
 	{
 		if (enemy_texture.loadFromFile("enemy_texture_path)")) {
 			enemy_sprite.setTexture(enemy_texture);

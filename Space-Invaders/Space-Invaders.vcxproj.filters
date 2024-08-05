@@ -51,13 +51,13 @@
     <ClCompile Include="UI\UISERVICE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy\Enemyservice.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Enemy\EnemyController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Enemy\EnemyModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\Enemyservice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Enemy\EnemyView.cpp">
@@ -98,16 +98,16 @@
     <ClInclude Include="UI\UISERVICE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy\Enemyservice.h">
+    <ClInclude Include="Enemy\EnemyController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Enemy\EnemyModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy\EnemyView.h">
+    <ClInclude Include="Enemy\Enemyservice.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy\EnemyController.h">
+    <ClInclude Include="Enemy\EnemyView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
