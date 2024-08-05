@@ -31,14 +31,35 @@ namespace UI {
 
 	void UI::UiService::intialize()
 	{
+
+		
+
+		main_menu_controller->intialize();
 		intializecontrollers();
+
+
+
 	}
 
 	void UI::UiService::update()
 	{
+		switch (GameService::getGameState())
+		{
+		case GameState::MAIN_MENU:
+			return main_menu_controller->update();
+			break;
+		}
 	}
 
 	void UI::UiService::render()
 	{
+		
+
+		switch (GameService::getGameState())
+		{
+		case GameState::MAIN_MENU:
+			return main_menu_controller->render();
+			break;
+		}
 	}
 }

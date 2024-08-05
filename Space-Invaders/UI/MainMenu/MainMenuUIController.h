@@ -6,8 +6,8 @@ namespace UI {
 
 		private:
 			sf::RenderWindow* game_window;
-			const float button_height = 100.f;
-			const float button_width = 100.f;
+			const float button_height = 200.f;
+			const float button_width = 200.f;
 
 			const sf::String background_texture_path = "assets/textures/space_invaders_bg.png";
 			const sf::String play_button_texture_path = "assets/textures/play_button.png";
@@ -54,7 +54,8 @@ namespace UI {
 			void render();
 
 
-
+			void processButtonInteractions();
+			bool clickedButton(sf::Sprite* button_sprite, sf::Vector2f mouse_position);
 
 };
 }

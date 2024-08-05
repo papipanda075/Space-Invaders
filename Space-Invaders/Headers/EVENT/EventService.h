@@ -10,6 +10,7 @@ namespace  event {
 		RELEASED,
 	};
 
+
 	class EventService
 	{
 	private:
@@ -49,8 +50,11 @@ namespace  event {
 		bool leftmousebutton();
 		bool rightmousebutton();
 
+		bool pressedLeftMouseButton();
+		bool pressedRightMouseButton();
 
 		bool pressedAKey();
 		bool pressedDKey();
+		
 	};
 }

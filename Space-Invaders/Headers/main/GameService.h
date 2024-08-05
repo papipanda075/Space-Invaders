@@ -9,6 +9,9 @@ enum class GameState //create the enum
 	GAMEPLAY,
 };
 
+
+	
+
 namespace Main {
 
 	using namespace Global;

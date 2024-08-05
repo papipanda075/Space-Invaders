@@ -24,16 +24,20 @@ namespace UI {
 		{
 			background_sprite.setScale(
 
-				static_cast<float>(game_window->getSize().x)/
-				background_sprite.getTexture()->getSize().x,
-				static_cast<float>(game_window->getSize().y)/
-				background_sprite.getTexture()->getSize().y
-
+				static_cast<float>(game_window->getSize().x) / background_sprite.getTexture()->getSize().x,
+				static_cast<float>(game_window->getSize().y) / background_sprite.getTexture()->getSize().y
 			);
 		}
 
 		void MainMenuUI::initializeButtons()
 		{
+			if (loadButtonTexturesFromFile())
+			{
+				// order of function calls matter
+				setButtonSprites();
+				scaleAllButttons();
+				positionButtons();
+			}
 		}
 
 		bool MainMenuUI::loadButtonTexturesFromFile()
@@ -69,9 +73,9 @@ namespace UI {
 		void MainMenuUI::positionButtons()
 		{
 			float xposition = (static_cast<float>(game_window->getSize().x) / 2) - button_width / 2;
-			play_button_sprite.setPosition(xposition, 540);
-			instructions_button_sprite.setPosition(xposition, 560);
-			quit_button_sprite.setPosition(xposition, 580);
+			play_button_sprite.setPosition(xposition, 500);
+			instructions_button_sprite.setPosition(xposition,700);
+			quit_button_sprite.setPosition(xposition, 900);
 		}
 
 		UI::MainMenu::MainMenuUI::MainMenuUI()
@@ -94,6 +98,7 @@ namespace UI {
 
 		void UI::MainMenu::MainMenuUI::update()
 		{
+			processButtonInteractions();
 
 		}
 
@@ -104,6 +109,27 @@ namespace UI {
 			game_window->draw(play_button_sprite);
 			game_window->draw(instructions_button_sprite);
 			game_window->draw(quit_button_sprite);
+		}
+		void MainMenuUI::processButtonInteractions()
+		{
+			sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));
+			if (clickedButton(&play_button_sprite, mouse_position)) {
+				GameService::setGameState(GameState::GAMEPLAY);
+			}
+
+			if (clickedButton(&instructions_button_sprite, mouse_position))
+			{
+				printf("Clicked Instruction Button \\n");
+			}
+			if (clickedButton(&quit_button_sprite, mouse_position))
+				game_window->close();
+
+		}
+		bool MainMenuUI::clickedButton(sf::Sprite* button_sprite, sf::Vector2f mouse_position)
+		{
+
+			EventService* event_service = ServiceLocator::getInstance()->getEventService();
+			return  event_service->pressedLeftMouseButton() && button_sprite->getGlobalBounds().contains(mouse_position);
 		}
 	}
 }

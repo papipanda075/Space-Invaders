@@ -123,14 +123,24 @@ namespace event {
         return game_event.type==sf::Event::MouseButtonPressed && game_event.mouseButton.button == sf::Mouse::Right;
     }
 
+    bool EventService::pressedLeftMouseButton()
+    {
+        return game_event.type == sf::Event::MouseButtonPressed && game_event.mouseButton.button == sf::Mouse::Left;
+    }
+
+    bool EventService::pressedRightMouseButton()
+    {
+        return game_event.type == sf::Event::MouseButtonPressed && game_event.mouseButton.button == sf::Mouse::Right;
+    }
     bool EventService::pressedAKey()
     {
-        return false;
+        return A_button_state == ButtonState::HELD;
     }
-
     bool EventService::pressedDKey()
     {
-        return false;
+        return D_button_state == ButtonState::HELD;
     }
+           }
 
-}
+    
+

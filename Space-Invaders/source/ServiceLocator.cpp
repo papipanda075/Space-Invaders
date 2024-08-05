@@ -71,13 +71,14 @@ namespace Global {
 	void ServiceLocator::render() {
 
 		
-		player_service->render();
+		
 		graphic_service->render(); // Render graphic service
 
 	 // Render graphic service
-
 		player_service->render();
 		ui_service->render();
+
+		
 		
 		
 	}
