@@ -2,6 +2,7 @@
 namespace Enemy {
 	Enemy::EnemyModel::EnemyModel()
 	{
+		
 	}
 
 	Enemy::EnemyModel::~EnemyModel()
@@ -11,6 +12,7 @@ namespace Enemy {
 
 	void Enemy::EnemyModel::initialize()
 	{
+		movement_direction = MovementDirection::RIGHT;
 		enemy_position = reference_position;
 	}
 
@@ -32,5 +34,13 @@ namespace Enemy {
 	void Enemy::EnemyModel::setReferencePosition(sf::Vector2f position)
 	{
 		reference_position = position;
+	}
+	MovementDirection EnemyModel::getmovementdirection()
+	{
+		return movement_direction;
+	}
+	void EnemyModel::setmovementdirection(MovementDirection direction)
+	{
+		movement_direction = direction;
 	}
 }

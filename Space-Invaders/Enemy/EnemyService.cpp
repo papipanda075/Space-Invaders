@@ -24,7 +24,7 @@ namespace Enemy {
 
 	void Enemy::EnemyService::update()
 	{
-		
+		enemy->update();
 	}
 
 	void Enemy::EnemyService::render()
