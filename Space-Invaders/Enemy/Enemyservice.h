@@ -1,19 +1,24 @@
 #pragma once
-#include<SFML/Graphics.hpp>
-namespace enemy {
+namespace Enemy {
 	class EnemyController;
+
 	class EnemyService {
 	private:
-		EnemyController* Enemy;
-		void destroy();
+
+		void Destroy(); 
+
+		EnemyController* enemy; 	
+
+
+
 	public:
 		EnemyService();
 		virtual ~EnemyService();
 
-		void intialize();
+		void initialize();
 		void update();
 		void render();
-		EnemyController* spawnenemy();
-	
+
+		EnemyController* spawnEnemy();
 	};
 }

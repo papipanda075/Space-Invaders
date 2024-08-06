@@ -132,10 +132,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Enemy\EnemyController.cpp" />
-    <ClCompile Include="Enemy\EnemyModel.cpp" />
-    <ClCompile Include="Enemy\Enemyservice.cpp" />
-    <ClCompile Include="Enemy\EnemyView.cpp" />
+    <ClCompile Include="ENEMY\EnemyController.cpp" />
+    <ClCompile Include="ENEMY\EnemyModel.cpp" />
+    <ClCompile Include="ENEMY\Enemyservice.cpp" />
+    <ClCompile Include="ENEMY\EnemyView.cpp" />
     <ClCompile Include="source\EventService.cpp" />
     <ClCompile Include="source\GameService.cpp" />
     <ClCompile Include="source\GraphicService.cpp" />
@@ -150,10 +150,10 @@
     <ClCompile Include="UI\UISERVICE.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Enemy\EnemyController.h" />
-    <ClInclude Include="Enemy\EnemyModel.h" />
-    <ClInclude Include="Enemy\Enemyservice.h" />
-    <ClInclude Include="Enemy\EnemyView.h" />
+    <ClInclude Include="ENEMY\EnemyController.h" />
+    <ClInclude Include="ENEMY\EnemyModel.h" />
+    <ClInclude Include="ENEMY\Enemyservice.h" />
+    <ClInclude Include="ENEMY\EnemyView.h" />
     <ClInclude Include="Headers\EVENT\EventService.h" />
     <ClInclude Include="Headers\main\GameService.h" />
     <ClInclude Include="Headers\Graphic\GraphicService.h" />

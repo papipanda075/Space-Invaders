@@ -1,23 +1,21 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-namespace enemy 
-{
-	
-class EnemyView;
-class EnemyMode; 
+#include<SFML/Graphics.hpp>
+ namespace Enemy {
+	 class EnemyView;
+	 class EnemyModel;
 	class EnemyController {
 	private:
 		EnemyView* enemy_view;
-		EnemyMode* enemy_model;
+		EnemyModel* enemy_model;
 
 	public:
 
 		EnemyController();
 		~EnemyController();
+
 		void initialize();
 		void update();
 		void render();
-
 		sf::Vector2f getEnemyPosition();
 	};
 }

@@ -11,7 +11,7 @@ namespace   Global {
     using namespace Graphic;
     using namespace event;
     using namespace UI;
-    using namespace enemy;
+    using namespace Enemy;
     class ServiceLocator
     {
     private:

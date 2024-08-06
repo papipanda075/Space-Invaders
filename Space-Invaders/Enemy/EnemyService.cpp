@@ -1,55 +1,42 @@
-#include"../../Enemy/Enemyservice.h"
-#include"../../Enemy/EnemyController.h"
-#include"../../Enemy/EnemyModel.h"
-#include"../../Enemy/EnemyView.h"
-#include"../../Headers/Global/ServiceLocator.h"
-namespace enemy {
-	using namespace Global;
-
-
-
-	void EnemyService::destroy()
+#include "Enemyservice.h"
+#include"../ENEMY/EnemyController.h"
+namespace Enemy {
+	void Enemy::EnemyService::Destroy()
 	{
-		delete(Enemy);
+		delete(enemy);
 	}
 
-	enemy::EnemyService::EnemyService()
+	Enemy::EnemyService::EnemyService()
 	{
-		Enemy = nullptr;
+		enemy = nullptr;
+	}
+
+	Enemy::EnemyService::~EnemyService()
+	{
+		Destroy();
 
 	}
 
+	void Enemy::EnemyService::initialize()
+	{
+		spawnEnemy();
+	}
 
-	enemy::EnemyService::~EnemyService()
+	void Enemy::EnemyService::update()
 	{
 		
-		destroy();
 	}
 
-	void enemy::EnemyService::intialize()
+	void Enemy::EnemyService::render()
 	{
-		spawnenemy();
+		enemy->render();
 	}
 
-	void enemy::EnemyService::update()
+	EnemyController* Enemy::EnemyService::spawnEnemy()
 	{
+		enemy = new EnemyController();
+		enemy->initialize();
 
+		return enemy;
 	}
-
-	void enemy::EnemyService::render()
-	{
-		Enemy->render();
-	}
-
-	EnemyController* EnemyService::spawnenemy()
-	{
-		Enemy = new EnemyController();
-		Enemy->initialize();
-		return Enemy;
-	}
-
-
-
-	
-
 }

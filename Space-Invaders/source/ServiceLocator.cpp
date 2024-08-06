@@ -63,6 +63,7 @@ namespace Global {
 		player_service->initialize();
 		time_Service->intialize();
 		ui_service->intialize();
+		enemy_service->initialize();
 	}
 
 	// Updates the state of the graphic service.

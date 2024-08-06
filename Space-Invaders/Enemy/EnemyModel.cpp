@@ -1,39 +1,36 @@
-#include"../../Enemy/EnemyModel.h"
-namespace enemy {
-	EnemyMode::EnemyMode()
+#include "EnemyModel.h"
+namespace Enemy {
+	Enemy::EnemyModel::EnemyModel()
 	{
 	}
-	EnemyMode::~EnemyMode()
+
+	Enemy::EnemyModel::~EnemyModel()
 	{
+		enemy_position = reference_position;
 	}
-	void EnemyMode::setenemyposition(sf::Vector2f pos)
+
+	void Enemy::EnemyModel::initialize()
 	{
-		enemypostion = pos;
+		enemy_position = reference_position;
 	}
-	sf::Vector2f EnemyMode::getenemytposition()
+
+	sf::Vector2f Enemy::EnemyModel::getEnemyPosition()
 	{
-		return enemypostion;
+		return enemy_position;
 	}
-	void EnemyMode::setrefgpos(sf::Vector2f spos)
+
+	void Enemy::EnemyModel::setEnemyPosition(sf::Vector2f position)
 	{
-		reference_position = spos;
+		enemy_position = position;
 	}
-	sf::Vector2f EnemyMode::getrefpos()
+
+	sf::Vector2f Enemy::EnemyModel::getReferencePosition()
 	{
 		return reference_position;
 	}
-	void EnemyMode::intialize()
-	{
-		enemypostion = reference_position;
-	}
 
-	void EnemyMode::update()
+	void Enemy::EnemyModel::setReferencePosition(sf::Vector2f position)
 	{
+		reference_position = position;
 	}
-
-	void EnemyMode::render()
-	{
-	}
-	
-	}
-	
+}

@@ -1,23 +1,22 @@
 #pragma once
 #include<SFML/Graphics.hpp>
-namespace enemy {
-	class EnemyMode {
+namespace Enemy {
+	class EnemyModel {
 
-	private:
-		sf::Vector2f enemypostion;
-		sf::Vector2f reference_position = sf::Vector2f(0.f, 0.f);
+    private:
+        sf::Vector2f reference_position = sf::Vector2f(50.f, 50.f);
+        sf::Vector2f enemy_position;
 
+    public:
+        EnemyModel();
+        ~EnemyModel();
 
-	public:
-		EnemyMode();
-		~EnemyMode();
-		void setenemyposition(sf::Vector2f pos);
-		sf::Vector2f getenemytposition();
-		void setrefgpos(sf::Vector2f spos);
-		sf::Vector2f getrefpos();
+        void initialize();
 
-		void intialize();
-		void update();
-		void render();
+        sf::Vector2f getEnemyPosition();
+        void setEnemyPosition(sf::Vector2f position);
+
+        sf::Vector2f getReferencePosition();
+        void setReferencePosition(sf::Vector2f position);
 	};
 }
