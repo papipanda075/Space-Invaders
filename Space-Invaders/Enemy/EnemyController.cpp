@@ -56,7 +56,7 @@ namespace Enemy {
 	void EnemyController::moveLeft()
 	{
 		sf::Vector2f currentposition = enemy_model->getEnemyPosition();
-		currentposition.x += enemy_model->movement_speed * ServiceLocator::getInstance()->gettimeservice()->getdeltatime();
+		currentposition.x -= enemy_model->movement_speed * ServiceLocator::getInstance()->gettimeservice()->getdeltatime();
 		if (currentposition.x <= enemy_model->left_most.x) {
 			enemy_model->setmovementdirection(MovementDirection::DOWN);
 			enemy_model->setReferencePosition(currentposition);
