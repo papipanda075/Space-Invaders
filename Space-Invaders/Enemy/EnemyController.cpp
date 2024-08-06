@@ -2,8 +2,9 @@
 #include"../../ENEMY/EnemyModel.h"
 #include"../../ENEMY/EnemyView.h"
 #include"../../Headers/Global/ServiceLocator.h"
+#include<iostream>
 namespace Enemy {
-
+	using namespace std;
 	using namespace Global;
 	EnemyController::EnemyController()
 	{
@@ -71,7 +72,7 @@ namespace Enemy {
 		currentposition.x += enemy_model->movement_speed * ServiceLocator::getInstance()->gettimeservice()->getdeltatime();
 		if (currentposition.x >= enemy_model->right_most.x) {
 			enemy_model->setmovementdirection(MovementDirection::DOWN);
-			enemy_model->setEnemyPosition(currentposition);
+			enemy_model->setReferencePosition(currentposition);
 		}
 		else {
 			enemy_model->setEnemyPosition(currentposition);
@@ -90,7 +91,7 @@ namespace Enemy {
 			if (enemy_model->getReferencePosition().x >= enemy_model->right_most.x) {
 
 				enemy_model->setmovementdirection(MovementDirection::LEFT);
-
+				cout << "call left";
 			}
 			else {
 
