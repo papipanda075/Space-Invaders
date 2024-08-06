@@ -78,25 +78,31 @@ namespace Enemy {
 
 		}
 	}
-	void EnemyController::moveDown() {
-
+	void EnemyController::moveDown()
+	{
 		sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
 		currentPosition.y += enemy_model->movement_speed * ServiceLocator::getInstance()->gettimeservice()->getdeltatime();
-		if (currentPosition.y >= enemy_model->getReferencePosition().y + enemy_model->downward_distance) {
 
+		//check if enemy has moved the specified distance downwards
+		if (currentPosition.y >= enemy_model->getReferencePosition().y + enemy_model->downward_distance)
+		{
 
-			if (enemy_model->getReferencePosition().x <= enemy_model->left_most.x) {
+			if (enemy_model->getReferencePosition().x >= enemy_model->right_most.x) {
 
-				enemy_model->setmovementdirection(MovementDirection::RIGHT);
+				enemy_model->setmovementdirection(MovementDirection::LEFT);
+
 			}
 			else {
 
-				enemy_model->setmovementdirection(MovementDirection::LEFT);
+				enemy_model->setmovementdirection(MovementDirection::RIGHT);
 			}
+
 
 		}
 		else {
 			enemy_model->setEnemyPosition(currentPosition);
 		}
+
+
 	}
 }
