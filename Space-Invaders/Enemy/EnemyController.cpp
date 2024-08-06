@@ -73,6 +73,10 @@ namespace Enemy {
 			enemy_model->setmovementdirection(MovementDirection::DOWN);
 			enemy_model->setEnemyPosition(currentposition);
 		}
+		else {
+			enemy_model->setEnemyPosition(currentposition);
+
+		}
 	}
 	void EnemyController::moveDown() {
 
