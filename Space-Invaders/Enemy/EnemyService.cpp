@@ -1,42 +1,62 @@
-#include "Enemyservice.h"
-#include"../ENEMY/EnemyController.h"
-namespace Enemy {
-	void Enemy::EnemyService::Destroy()
+//#include "../../Header/Enemy/EnemyService.h"
+//#include "../../Header/Enemy/EnemyController.h"
+//#include "../../Header/Global/ServiceLocator.h"
+//#include "../../Header/Time/TimeService.h"
+#include"../../ENEMY/Enemyservice.h"
+#include"../../ENEMY/EnemyController.h"
+#include"../../Headers/Global/ServiceLocator.h"
+#include"../../Headers/TIME/TimeService .h"
+
+namespace Enemy
+{
+	using namespace Global;
+
+	EnemyService::EnemyService() { }
+
+	EnemyService::~EnemyService() { destroy(); }
+
+	void EnemyService::initialize()
 	{
-		delete(enemy);
+		spawn_timer = spawn_interval; // for the first spawn
 	}
 
-	Enemy::EnemyService::EnemyService()
+	void EnemyService::update()
 	{
-		enemy = nullptr;
+		updateSpawnTimer();
+		processEnemySpawn();
+
+		for (int i = 0; i < enemy_list.size(); i++) enemy_list[i]->update();
 	}
 
-	Enemy::EnemyService::~EnemyService()
+	void EnemyService::render()
 	{
-		Destroy();
-
+		for (int i = 0; i < enemy_list.size(); i++) enemy_list[i]->render();
 	}
 
-	void Enemy::EnemyService::initialize()
+	void EnemyService::updateSpawnTimer()
 	{
-		spawnEnemy();
+		spawn_timer += ServiceLocator::getInstance()->gettimeservice()->getdeltatime(); // increase timer
 	}
 
-	void Enemy::EnemyService::update()
+	void EnemyService::processEnemySpawn()
 	{
-		enemy->update();
+		if (spawn_timer >= spawn_interval)
+		{
+			spawnEnemy(); //spawn 
+			spawn_timer = 0.0f; // reset
+		}
 	}
 
-	void Enemy::EnemyService::render()
+	void EnemyService::spawnEnemy()
 	{
-		enemy->render();
+		EnemyController* enemy_controller = new EnemyController(); // create
+		enemy_controller->initialize(); // init as soon as created
+
+		enemy_list.push_back(enemy_controller); //add to list
 	}
 
-	EnemyController* Enemy::EnemyService::spawnEnemy()
+	void EnemyService::destroy()
 	{
-		enemy = new EnemyController();
-		enemy->initialize();
-
-		return enemy;
+		for (int i = 0; i < enemy_list.size(); i++) delete (enemy_list[i]); //delete all enemies
 	}
 }
