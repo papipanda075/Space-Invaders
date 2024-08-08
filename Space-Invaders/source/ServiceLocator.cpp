@@ -5,12 +5,14 @@
 #include"../Headers/TIME/TimeService .h"
 #include"../Headers//Graphic/GraphicService.h"
 #include"../Headers/main/GameService.h"
+#include"../../Gameplay/GameplayService.H"
 
 
 namespace Global {
 	using namespace Main;
 	using namespace Graphic;
 	using namespace event;
+	using namespace Gameplay;
 
 	// Constructor: Initializes the graphic_service pointer to null and creates services.
 	ServiceLocator::ServiceLocator() {
@@ -20,6 +22,8 @@ namespace Global {
 		time_Service = nullptr;
 		ui_service = nullptr;
 		enemy_service =nullptr;
+		game_play = nullptr;
+		
 		createServices(); // Call createServices to instantiate services
 	}
 
@@ -37,6 +41,7 @@ namespace Global {
 		time_Service = new TimeService();
 		ui_service = new UiService();
 		enemy_service = new EnemyService();
+		game_play = new GameplayService();
 	}
 
 	// Deletes allocated services to prevent memory leaks, specifically the graphic service.
@@ -47,6 +52,7 @@ namespace Global {
 		delete(time_Service);
 		delete(ui_service);
 		delete(enemy_service);
+		delete(game_play);
 		
 	}
 
@@ -64,6 +70,7 @@ namespace Global {
 		time_Service->intialize();
 		ui_service->intialize();
 		enemy_service->initialize();
+		game_play->initialize();
 	}
 
 	// Updates the state of the graphic service.
@@ -74,10 +81,12 @@ namespace Global {
 
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
+			game_play->update();
 			player_service->update();
 			enemy_service->update();
+		
 		}
-
+		
 		   ui_service->update();
 
 	
@@ -96,9 +105,13 @@ namespace Global {
 
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
+			game_play->render();
 			player_service->render();
 			enemy_service->render();
-		}
+			
+		}  
+
+		
 
 		ui_service->render();
 		
@@ -129,6 +142,11 @@ namespace Global {
 	EnemyService* ServiceLocator::getenemyservice()
 	{
 		return enemy_service;
+	}
+
+	GameplayService* ServiceLocator::getgameplayservice()
+	{
+		return game_play;
 	}
 
 	

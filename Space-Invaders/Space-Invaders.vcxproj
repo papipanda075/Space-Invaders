@@ -136,6 +136,9 @@
     <ClCompile Include="ENEMY\EnemyModel.cpp" />
     <ClCompile Include="ENEMY\Enemyservice.cpp" />
     <ClCompile Include="ENEMY\EnemyView.cpp" />
+    <ClCompile Include="Gameplay\GameplayController.cpp" />
+    <ClCompile Include="Gameplay\GameplayService.cpp" />
+    <ClCompile Include="Gameplay\GameplayView.cpp" />
     <ClCompile Include="source\EventService.cpp" />
     <ClCompile Include="source\GameService.cpp" />
     <ClCompile Include="source\GraphicService.cpp" />
@@ -154,6 +157,9 @@
     <ClInclude Include="ENEMY\EnemyModel.h" />
     <ClInclude Include="ENEMY\Enemyservice.h" />
     <ClInclude Include="ENEMY\EnemyView.h" />
+    <ClInclude Include="Gameplay\GameplayController.h" />
+    <ClInclude Include="Gameplay\GameplayService.H" />
+    <ClInclude Include="Gameplay\GameplayView.H" />
     <ClInclude Include="Headers\EVENT\EventService.h" />
     <ClInclude Include="Headers\main\GameService.h" />
     <ClInclude Include="Headers\Graphic\GraphicService.h" />
